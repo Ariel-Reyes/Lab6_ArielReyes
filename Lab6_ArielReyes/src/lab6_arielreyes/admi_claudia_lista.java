@@ -46,9 +46,7 @@ public class admi_claudia_lista {
         return "admi_claudia_lista{" + "lista_claus=" + lista_claus + ", archivo=" + archivo + '}';
     }
 
-    public void setClaudialist(claudilist p) {
-        this.lista_claus.add(p);
-    }
+   
     
     public void escribeArchivo() throws IOException {
         FileWriter fw = null;

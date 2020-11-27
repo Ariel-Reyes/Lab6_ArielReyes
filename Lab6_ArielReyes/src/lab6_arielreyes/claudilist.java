@@ -38,7 +38,7 @@ public class claudilist {
 
     @Override
     public String toString() {
-        return "claudilist{" + "nombre=" + nombre + ", progra=" + progra + '}';
+        return  nombre ;
     }
     
     
