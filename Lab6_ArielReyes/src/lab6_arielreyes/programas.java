@@ -69,7 +69,7 @@ public class programas {
 
     @Override
     public String toString() {
-        return "programas{" + "nombre=" + nombre + ", puntuacion=" + puntuacion + ", year_lanzamiento=" + year_lanzamiento + ", tipo=" + tipo + ", genero=" + genero;
+        return  nombre ;
     }
 
 
