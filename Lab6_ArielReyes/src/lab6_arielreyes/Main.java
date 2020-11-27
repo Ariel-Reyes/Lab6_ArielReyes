@@ -24,6 +24,9 @@ import javax.swing.ListModel;
  */
 public class Main extends javax.swing.JFrame {
 
+    
+    
+    
     /**
      * Creates new form Main
      */
@@ -118,7 +121,20 @@ public class Main extends javax.swing.JFrame {
         Modif = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        mood = new javax.swing.JDialog();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        cb_mod = new javax.swing.JComboBox<>();
+        jButton14 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -616,6 +632,15 @@ public class Main extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane5.setViewportView(jTextArea3);
 
+        jLabel19.setText("Indice a modificar");
+
+        jButton11.setText("Modificar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         jButton10.setText("Mostrar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -633,7 +658,16 @@ public class Main extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ModifLayout.createSequentialGroup()
-                        .addGap(178, 178, 178)
+                        .addGap(130, 130, 130)
+                        .addComponent(jLabel19))
+                    .addGroup(ModifLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ModifLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jButton11))
+                    .addGroup(ModifLayout.createSequentialGroup()
+                        .addGap(193, 193, 193)
                         .addComponent(jButton10)))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
@@ -642,9 +676,91 @@ public class Main extends javax.swing.JFrame {
             .addGroup(ModifLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton10)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton11)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        jLabel20.setText("Nombre: ");
+
+        jLabel21.setText("Seleccion: ");
+
+        jList2.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(jList2);
+
+        jButton12.setText("Agregar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("Limpiar");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("Agregar");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout moodLayout = new javax.swing.GroupLayout(mood.getContentPane());
+        mood.getContentPane().setLayout(moodLayout);
+        moodLayout.setHorizontalGroup(
+            moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moodLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel20))
+                .addGap(18, 18, 18)
+                .addGroup(moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField5)
+                    .addComponent(cb_mod, 0, 137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton14)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moodLayout.createSequentialGroup()
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addGroup(moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moodLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moodLayout.createSequentialGroup()
+                        .addComponent(jButton12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton13)
+                        .addGap(104, 104, 104))))
+        );
+        moodLayout.setVerticalGroup(
+            moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moodLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(cb_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addGroup(moodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton12)
+                    .addComponent(jButton13)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -752,8 +868,9 @@ public class Main extends javax.swing.JFrame {
             programas pro = new programas(nombre, puntuacion, year_lanzamiento, tipo, genero);
             DefaultComboBoxModel pelis = (DefaultComboBoxModel) jb_agregar_peli.getModel();            
             pelis.addElement(pro);
-            jb_agregar_peli.setModel(pelis);
             
+            jb_agregar_peli.setModel(pelis);
+            cb_mod.setModel(pelis);
             JOptionPane.showMessageDialog(this, "Agregado Correctamente");
             jS_puntuacion.setValue(0);
             jt_nombre.setText("");
@@ -1006,9 +1123,14 @@ String ac = "";
         modif();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        moode();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-         admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+           admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
         admi.cargarArchivo();
         String st = "";
         //st += admi.getLista_claus();
@@ -1029,6 +1151,53 @@ String ac = "";
 
         jTextArea3.setText(aci);
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+         DefaultComboBoxModel model_combo = (DefaultComboBoxModel) cb_mod.getModel();
+        DefaultListModel model_lista = (DefaultListModel) jList2.getModel();
+        programas persona = (programas) cb_mod.getSelectedItem();
+        model_lista.addElement(persona);
+        jList2.setModel(model_lista);
+       
+        cb_mod.setModel(model_combo);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+
+        if (jTextField4 == null) {
+            JOptionPane.showMessageDialog(this, "ERROR");
+        } else {
+
+            try {
+                
+                int indice = Integer.parseInt(jTextField4.getText());
+                ListModel d = jList2.getModel();
+                ArrayList<programas> t = new ArrayList();
+                for (int i = 0; i < d.getSize(); i++) {
+                    t.add((programas) d.getElementAt(i));
+                }
+                String nombre = jTextField5.getText();                
+                claudilist clau = new claudilist(nombre);                
+                clau.setProgra(t);
+                admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+                admi.cargarArchivo();
+                admi.getLista_claus().set(indice, clau);
+                admi.escribeArchivo();
+                
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "ERROR");
+            }
+        }
+
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        jList2.removeAll();
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1112,6 +1281,15 @@ String ac = "";
         Modif.setLocationRelativeTo(this);
         Modif.setVisible(true);
     }
+    
+     public void moode() {
+        mood.dispose();
+        mood.pack();
+        mood.setModal(true);
+        mood.setLocationRelativeTo(this);
+        mood.setVisible(true);
+    }
+    
 
     
     private ArrayList<claudilist> lista_claudia = new ArrayList(); 
@@ -1126,8 +1304,13 @@ String ac = "";
     private javax.swing.JDialog Modif;
     private javax.swing.JComboBox<String> cb_genero;
     private javax.swing.JComboBox<String> cb_genero1;
+    private javax.swing.JComboBox<String> cb_mod;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1146,7 +1329,10 @@ String ac = "";
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1155,6 +1341,7 @@ String ac = "";
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1171,12 +1358,15 @@ String ac = "";
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JComboBox<String> jb_agregar_peli;
     private javax.swing.JRadioButton jb_anime;
     private javax.swing.JRadioButton jb_anime1;
@@ -1193,6 +1383,7 @@ String ac = "";
     private javax.swing.JDialog listar;
     private javax.swing.JPopupMenu menu_para_modpeliculas;
     private javax.swing.JDialog mod_lista;
+    private javax.swing.JDialog mood;
     private javax.swing.ButtonGroup tipo_boton;
     // End of variables declaration//GEN-END:variables
 }
