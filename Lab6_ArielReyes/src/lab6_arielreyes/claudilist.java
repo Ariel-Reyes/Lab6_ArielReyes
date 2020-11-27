@@ -15,9 +15,9 @@ public class claudilist {
     String nombre ; 
     ArrayList<programas> progra = new ArrayList(); 
 
-    public claudilist(String nombre,  ArrayList<programas> progra) {
+    public claudilist(String nombre) {
         this.nombre = nombre;
-        this.progra = progra;
+       
     }
 
     public String getNombre() {

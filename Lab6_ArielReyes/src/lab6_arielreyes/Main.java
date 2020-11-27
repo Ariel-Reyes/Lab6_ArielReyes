@@ -5,7 +5,10 @@
  */
 package lab6_arielreyes;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -69,6 +72,9 @@ public class Main extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_listas = new javax.swing.JList<>();
+        jButton5 = new javax.swing.JButton();
         menu_para_modpeliculas = new javax.swing.JPopupMenu();
         Mod = new javax.swing.JMenuItem();
         Eliminar = new javax.swing.JMenuItem();
@@ -89,6 +95,8 @@ public class Main extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         cb_genero1 = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
+        List_cla = new javax.swing.JPopupMenu();
+        Delete = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -227,7 +235,7 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jButton2.setText("Agregar");
+        jButton2.setText("Crear Lista");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -241,12 +249,27 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jl_listas.setModel(new DefaultListModel());
+        jl_listas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_listasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jl_listas);
+
+        jButton5.setText("Cargar a Archivo de texto");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ClaudiListLayout = new javax.swing.GroupLayout(ClaudiList.getContentPane());
         ClaudiList.getContentPane().setLayout(ClaudiListLayout);
         ClaudiListLayout.setHorizontalGroup(
             ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClaudiListLayout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(224, 224, 224))
             .addGroup(ClaudiListLayout.createSequentialGroup()
@@ -257,19 +280,28 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ClaudiListLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_agregar_peli, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton3))
-                    .addGroup(ClaudiListLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ClaudiListLayout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ClaudiListLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_agregar_peli, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ClaudiListLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ClaudiListLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jButton3))
+                            .addGroup(ClaudiListLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ClaudiListLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         ClaudiListLayout.setVerticalGroup(
             ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,10 +319,14 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jb_agregar_peli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
+                .addGroup(ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
+                .addGroup(ClaudiListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         Mod.setText("Modificar");
@@ -430,6 +466,14 @@ public class Main extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
+        Delete.setText("Eliminar");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+        List_cla.add(Delete);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu2.setText("Opciones");
@@ -536,7 +580,7 @@ public class Main extends javax.swing.JFrame {
         programas persona = (programas) jb_agregar_peli.getSelectedItem();
         model_lista.addElement(persona);
         jList1.setModel(model_lista);
-        model_combo.removeElement((programas) jb_agregar_peli.getSelectedItem());
+       
         jb_agregar_peli.setModel(model_combo);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -551,16 +595,21 @@ public class Main extends javax.swing.JFrame {
                 paso.add((programas) d.getElementAt(i));
             }
 
-            claudilist clau = new claudilist(nombre, paso);
+            claudilist clau = new claudilist(nombre);
+            clau.setProgra(paso);
+            DefaultListModel mod_lis = (DefaultListModel) jl_listas.getModel();
+            mod_lis.addElement(clau);
+            jl_listas.setModel(mod_lis);
 
             JOptionPane.showMessageDialog(this, "Agregado correctamente");
 
             lista_claudia.add(clau);
+            DefaultListModel dd = (DefaultListModel) jList1.getModel();
+            dd.removeAllElements();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR");
         }
-
 
 
 
@@ -631,11 +680,49 @@ public class Main extends javax.swing.JFrame {
         if(jList1.getSelectedIndex()>=0){
         DefaultListModel model = (DefaultListModel)jList1.getModel(); 
         model.remove(jList1.getSelectedIndex());
-        jList1.setModel(model);
+            jList1.setModel(model);
         }
-        
-        
+
+
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+
+        admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+        admi.cargarArchivo();
+        //  ListModel = jl_listas.getModel(); 
+        ListModel d = jl_listas.getModel();
+        for (int i = 0; i < d.getSize(); i++) {
+            admi.getLista_claus().add((claudilist) d.getElementAt(i));
+        }
+        JOptionPane.showMessageDialog(this, "Correcto");
+        try {
+            admi.escribeArchivo();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jl_listasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_listasMouseClicked
+        // TODO add your handling code here:
+        if(evt.isMetaDown()){
+         if(jl_listas.getSelectedIndex() >=0 ){
+             List_cla.show(evt.getComponent(), evt.getX(), evt.getY());
+         }   
+        }
+    }//GEN-LAST:event_jl_listasMouseClicked
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        // TODO add your handling code here:
+        
+if(jl_listas.getSelectedIndex() >=0 ){
+             DefaultListModel model = (DefaultListModel) jl_listas.getModel(); 
+             model.remove(jl_listas.getSelectedIndex());
+         }           
+    }//GEN-LAST:event_DeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -700,7 +787,9 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Agregar_programa;
     private javax.swing.JDialog ClaudiList;
+    private javax.swing.JMenuItem Delete;
     private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JPopupMenu List_cla;
     private javax.swing.JMenuItem Mod;
     private javax.swing.JComboBox<String> cb_genero;
     private javax.swing.JComboBox<String> cb_genero1;
@@ -708,6 +797,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -732,6 +822,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner jS_puntuacion;
     private javax.swing.JSpinner jS_puntuacion1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox<String> jb_agregar_peli;
@@ -745,6 +836,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton jb_serie1;
     private javax.swing.JFormattedTextField jf_lanzamiento;
     private javax.swing.JFormattedTextField jf_lanzamiento1;
+    private javax.swing.JList<String> jl_listas;
     private javax.swing.JTextField jt_nombre;
     private javax.swing.JPopupMenu menu_para_modpeliculas;
     private javax.swing.JDialog mod_lista;
