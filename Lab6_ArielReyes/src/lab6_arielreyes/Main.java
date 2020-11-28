@@ -146,6 +146,9 @@ public class Main extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         jLabel22 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jButton16 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -821,6 +824,15 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel23.setText("Agregar Una nueva Direccion ");
+
+        jButton16.setText("Direccion");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
         jMenu2.setText("Opciones");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -899,11 +911,27 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 828, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLabel23)
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton16)))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton16)
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         pack();
@@ -1080,7 +1108,7 @@ public class Main extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
 
-        admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
+        admi_claudia_lista admi = new admi_claudia_lista(jTextField6.getText());
         admi.cargarArchivo();
         //  ListModel = jl_listas.getModel(); 
         ListModel d = jl_listas.getModel();
@@ -1125,7 +1153,7 @@ if(jl_listas.getSelectedIndex() >=0 ){
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
+        admi_claudia_lista admi = new admi_claudia_lista(jTextField6.getText());
         admi.cargarArchivo();
         String st = "";
         st += admi.getLista_claus();
@@ -1150,7 +1178,7 @@ if(jl_listas.getSelectedIndex() >=0 ){
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-         admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
+         admi_claudia_lista admi = new admi_claudia_lista(jTextField6.getText());
         admi.cargarArchivo();
         String st = "";
         //st += admi.getLista_claus();
@@ -1177,7 +1205,7 @@ String ac = "";
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
 
-        admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
+        admi_claudia_lista admi = new admi_claudia_lista(jTextField6.getText());
         int indice = Integer.parseInt(jTextField3.getText());
         admi.cargarArchivo();
         admi.getLista_claus().remove(indice);
@@ -1203,7 +1231,7 @@ String ac = "";
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-           admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
+           admi_claudia_lista admi = new admi_claudia_lista(jTextField6.getText());
         admi.cargarArchivo();
         String st = "";
         //st += admi.getLista_claus();
@@ -1254,7 +1282,7 @@ String ac = "";
                 String nombre = jTextField5.getText();                
                 claudilist clau = new claudilist(nombre);                
                 clau.setProgra(t);
-                admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
+                admi_claudia_lista admi = new admi_claudia_lista(jTextField6.getText());
                 admi.cargarArchivo();
                 admi.getLista_claus().set(indice, clau);
                 admi.escribeArchivo();
@@ -1328,16 +1356,28 @@ String ac = "";
                 } else {
                     fichero = jfc.getSelectedFile();
                 }
-                 fw = new FileWriter(fichero);
+                fw = new FileWriter(fichero);
                 bw = new BufferedWriter(fw);
-               
+
                 bw.flush();
                 JOptionPane.showMessageDialog(this, "TEXTO AGREGADO");
             } catch(Exception e){
-                
+
             }
         }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser filecho = new JFileChooser();
+        filecho.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int seleccion = filecho.showOpenDialog(this);
+        
+            File dir = filecho.getSelectedFile();
+        
+       
+        jTextField6.setText( dir.getAbsolutePath());
+    }//GEN-LAST:event_jButton16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1460,6 +1500,7 @@ String ac = "";
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1483,6 +1524,7 @@ String ac = "";
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1522,6 +1564,7 @@ String ac = "";
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JComboBox<String> jb_agregar_peli;
     private javax.swing.JRadioButton jb_anime;
     private javax.swing.JRadioButton jb_anime1;
