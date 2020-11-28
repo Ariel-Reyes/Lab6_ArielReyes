@@ -15,8 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -30,6 +32,7 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+  
     public Main() {
         initComponents();
         DefaultComboBoxModel model = (DefaultComboBoxModel) cb_genero.getModel();
@@ -135,6 +138,12 @@ public class Main extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         cb_mod = new javax.swing.JComboBox<>();
         jButton14 = new javax.swing.JButton();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        abrir_archivo = new javax.swing.JDialog();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jLabel22 = new javax.swing.JLabel();
+        jButton15 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -143,6 +152,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
@@ -763,6 +773,49 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton13)))
         );
 
+        jMenuItem3.setText("jMenuItem3");
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane7.setViewportView(jTextArea4);
+
+        jLabel22.setText("Buscar Archivo: ");
+
+        jButton15.setText("Buscar");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout abrir_archivoLayout = new javax.swing.GroupLayout(abrir_archivo.getContentPane());
+        abrir_archivo.getContentPane().setLayout(abrir_archivoLayout);
+        abrir_archivoLayout.setHorizontalGroup(
+            abrir_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abrir_archivoLayout.createSequentialGroup()
+                .addGroup(abrir_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abrir_archivoLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(abrir_archivoLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton15)))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+        abrir_archivoLayout.setVerticalGroup(
+            abrir_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abrir_archivoLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(abrir_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jButton15))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu2.setText("Opciones");
@@ -817,6 +870,15 @@ public class Main extends javax.swing.JFrame {
         jMenu1.add(jMenuItem7);
 
         jMenu2.add(jMenu1);
+
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem8.setText("Abrir un Archivo");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem8);
 
         jMenuBar1.add(jMenu2);
 
@@ -1007,7 +1069,7 @@ public class Main extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
 
-        admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+        admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
         admi.cargarArchivo();
         //  ListModel = jl_listas.getModel(); 
         ListModel d = jl_listas.getModel();
@@ -1052,7 +1114,7 @@ if(jl_listas.getSelectedIndex() >=0 ){
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+        admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
         admi.cargarArchivo();
         String st = "";
         st += admi.getLista_claus();
@@ -1077,7 +1139,7 @@ if(jl_listas.getSelectedIndex() >=0 ){
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-         admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+         admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
         admi.cargarArchivo();
         String st = "";
         //st += admi.getLista_claus();
@@ -1104,7 +1166,7 @@ String ac = "";
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
 
-        admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+        admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
         int indice = Integer.parseInt(jTextField3.getText());
         admi.cargarArchivo();
         admi.getLista_claus().remove(indice);
@@ -1130,7 +1192,7 @@ String ac = "";
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-           admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+           admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
         admi.cargarArchivo();
         String st = "";
         //st += admi.getLista_claus();
@@ -1181,7 +1243,7 @@ String ac = "";
                 String nombre = jTextField5.getText();                
                 claudilist clau = new claudilist(nombre);                
                 clau.setProgra(t);
-                admi_claudia_lista admi = new admi_claudia_lista("./ Lista para el verano.txt");
+                admi_claudia_lista admi = new admi_claudia_lista("./ Lista Diciembre.txt");
                 admi.cargarArchivo();
                 admi.getLista_claus().set(indice, clau);
                 admi.escribeArchivo();
@@ -1198,6 +1260,44 @@ String ac = "";
         // TODO add your handling code here:
         jList2.removeAll();
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+
+        File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        jTextArea4.setText("");
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo de texto", "txt");
+            FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Imagenes", "jpg", "pgn", "bmp");
+            jfc.setFileFilter(filtro);
+            jfc.addChoosableFileFilter(filtro2);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                fr = new FileReader(fichero);
+                br = new BufferedReader(fr);
+                String linea = "";
+                jTextArea4.setText("");
+                while ((linea = br.readLine()) != null) {
+                    jTextArea4.append(linea);
+                    jTextArea4.append("\n");
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+
+
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        abrir();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1289,6 +1389,13 @@ String ac = "";
         mood.setLocationRelativeTo(this);
         mood.setVisible(true);
     }
+      public void abrir() {
+        abrir_archivo.dispose();
+        abrir_archivo.pack();
+        abrir_archivo.setModal(true);
+        abrir_archivo.setLocationRelativeTo(this);
+        abrir_archivo.setVisible(true);
+    }
     
 
     
@@ -1302,6 +1409,7 @@ String ac = "";
     private javax.swing.JPopupMenu List_cla;
     private javax.swing.JMenuItem Mod;
     private javax.swing.JDialog Modif;
+    private javax.swing.JDialog abrir_archivo;
     private javax.swing.JComboBox<String> cb_genero;
     private javax.swing.JComboBox<String> cb_genero1;
     private javax.swing.JComboBox<String> cb_mod;
@@ -1311,6 +1419,7 @@ String ac = "";
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1333,6 +1442,7 @@ String ac = "";
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1347,10 +1457,12 @@ String ac = "";
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JSpinner jS_puntuacion;
     private javax.swing.JSpinner jS_puntuacion1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1359,9 +1471,11 @@ String ac = "";
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
