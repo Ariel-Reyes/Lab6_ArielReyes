@@ -1370,7 +1370,7 @@ String ac = "";
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
         JFileChooser filecho = new JFileChooser();
-        filecho.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+       
         int seleccion = filecho.showOpenDialog(this);
         
             File dir = filecho.getSelectedFile();
